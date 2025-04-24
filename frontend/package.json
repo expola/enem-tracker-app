@@ -9,22 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@radix-ui/react-label": "^2.1.0", // Dependência comum para shadcn/ui Label
-    "@radix-ui/react-select": "^2.1.1", // Para shadcn/ui Select
-    "@radix-ui/react-separator": "^1.1.0", // Para shadcn/ui Separator
-    "@radix-ui/react-slot": "^1.1.0",  // Dependência comum para shadcn/ui Button
-    "@radix-ui/react-tabs": "^1.1.0",   // Para shadcn/ui Tabs
-    "chart.js": "^4.4.3",             // Para os gráficos
-    "class-variance-authority": "^0.7.0", // Usado por shadcn/ui
-    "clsx": "^2.1.1",                   // Usado pela utilidade cn (tailwind)
-    "geist": "^1.3.0",                  // Fonte usada no layout.tsx
-    "lucide-react": "^0.395.0",         // Para os ícones (usado no Sidebar)
-    "next": "14.2.4",                   // O framework Next.js
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.0",
+    "chart.js": "^4.4.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "geist": "^1.3.0",
+    "lucide-react": "^0.395.0",
+    "next": "14.2.4",
     "react": "^18",
-    "react-chartjs-2": "^5.2.0",        // Wrapper React para Chart.js
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
-    "tailwind-merge": "^2.3.0",        // Usado pela utilidade cn (tailwind)
-    "tailwindcss-animate": "^1.0.7"     // Para animações com Tailwind/shadcn
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -32,8 +32,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
-    "postcss": "^8",                    // Necessário para Tailwind CSS
-    "tailwindcss": "^3.4.1",            // Framework CSS
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }
