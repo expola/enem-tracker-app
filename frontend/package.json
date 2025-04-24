@@ -1,32 +1,39 @@
 {
-  "name": "enem-tracker-backend",
-  "version": "1.0.0",
-  "description": "Backend para o sistema de acompanhamento ENEM com análise TRI",
-  "main": "src/index.js",
+  "name": "enem-tracker-frontend",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "enem",
-    "tri",
-    "educação",
-    "api"
-  ],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.11.3",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.35.1"
+    "@radix-ui/react-label": "^2.1.0", // Dependência comum para shadcn/ui Label
+    "@radix-ui/react-select": "^2.1.1", // Para shadcn/ui Select
+    "@radix-ui/react-separator": "^1.1.0", // Para shadcn/ui Separator
+    "@radix-ui/react-slot": "^1.1.0",  // Dependência comum para shadcn/ui Button
+    "@radix-ui/react-tabs": "^1.1.0",   // Para shadcn/ui Tabs
+    "chart.js": "^4.4.3",             // Para os gráficos
+    "class-variance-authority": "^0.7.0", // Usado por shadcn/ui
+    "clsx": "^2.1.1",                   // Usado pela utilidade cn (tailwind)
+    "geist": "^1.3.0",                  // Fonte usada no layout.tsx
+    "lucide-react": "^0.395.0",         // Para os ícones (usado no Sidebar)
+    "next": "14.2.4",                   // O framework Next.js
+    "react": "^18",
+    "react-chartjs-2": "^5.2.0",        // Wrapper React para Chart.js
+    "react-dom": "^18",
+    "tailwind-merge": "^2.3.0",        // Usado pela utilidade cn (tailwind)
+    "tailwindcss-animate": "^1.0.7"     // Para animações com Tailwind/shadcn
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",                    // Necessário para Tailwind CSS
+    "tailwindcss": "^3.4.1",            // Framework CSS
+    "typescript": "^5"
   }
 }
