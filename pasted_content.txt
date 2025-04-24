@@ -1,0 +1,108 @@
+Aqui está um **prompt pronto** para você enviar a um desenvolvedor (ou a uma IA) para que crie um **site completo** com todas as funcionalidades que você detalhou:
+
+---
+
+## Prompt para Criação de Site de Acompanhamento ENEM
+
+**Objetivo Geral**  
+Desenvolver um sistema web responsivo para registro, análise e visualização de desempenho em testes e simulados de preparação para o ENEM, incluindo classificação automática de erros segundo parâmetros TRI.
+
+---
+
+### 1. Usuários e Autenticação  
+- **Cadastro/Login**: E-mail + senha, com opção de recuperação de senha.  
+- **Perfis**: Cada usuário vê apenas seus próprios dados e progresso.
+
+---
+
+### 2. Modelo de Dados (banco relacional ou No-SQL)  
+1. **Usuário**  
+   - id, nome, e-mail, hash_senha, data_criacao  
+2. **Teste**  
+   - id, usuario_id, data_teste (YYYY-MM-DD), tipo_teste (Tempo, Coerência, Simulado 1, Simulado 2), tempo_gasto_min, nota_redacao  
+3. **Resultado_Area**  
+   - id, teste_id, area (Linguagens, Humanas, Natureza, Matemática), total_questoes, acertos  
+4. **Questao**  
+   - id, area, parametro_b, parametro_a, parametro_c  
+5. **Resposta**  
+   - id, teste_id, questao_id, acertou (boolean)  
+6. **Parametros_TRI**  
+   - id, questao_id, parametro_b, parametro_a, parametro_c, dificuldade (Fácil/Médio/Difícil) — calculada em backend:  
+     ```js
+     if (b < -1) dificuldade = 'Fácil';
+     else if (b <= 1) dificuldade = 'Médio';
+     else dificuldade = 'Difícil';
+     ```
+
+---
+
+### 3. Funcionalidades Principais  
+1. **Registro de Testes**  
+   - Formulário com data, tipo de teste (dropdown), áreas (multi-select para Coerência/Simulados), total de questões, acertos por área, tempo gasto, nota de redação.  
+2. **Importação em Lote** (opcional)  
+   - CSV/JSON com respostas e parâmetros TRI para facilitar carga inicial.  
+3. **Dashboard Geral**  
+   - **KPIs**: Média geral de acertos (%), média por área, média de redação.  
+   - **Linha do Tempo**: evolução do % de acertos (Geral e por Área).  
+   - **Barras Empilhadas**: composição de erros por dificuldade × área.  
+   - **Radar Chart**: comparação de rendimento entre as 4 áreas.  
+4. **Análise de Erros**  
+   - Tabela e gráficos mostrando quantos erros de cada dificuldade (Fácil/Médio/Difícil) em cada área.  
+   - Opção de “ver detalhes” que abre lista de questões erradas com id, tópico e dica de revisão.  
+5. **Filtros Interativos**  
+   - Data (intervalo), Tipo de Teste, Área, Dificuldade.  
+   - Atualizam todos os gráficos em tempo real.  
+6. **Feedback Personalizado**  
+   - Mensagem “Você tem X% de erros em questões Fáceis de Natureza – sugerimos revisar [tópicos]”.  
+7. **Exportação/Download**  
+   - PDF ou imagem dos gráficos e relatórios.
+
+---
+
+### 4. Páginas e Componentes UI  
+1. **Home / Login / Cadastro**  
+2. **Dashboard**  
+   - Menu lateral: “Visão Geral”, “Análise de Erros”, “Redação”, “Configurações”.  
+3. **Visão Geral**  
+   - Gráficos de linha, radar, KPIs.  
+4. **Análise de Erros**  
+   - Gráfico de barras empilhadas e tabela de detalhes.  
+5. **Registro de Teste**  
+   - Formulário com validações (menus suspensos, datas, números).  
+6. **Configurações**  
+   - Perfil do usuário, parâmetros TRI (upload/edição manual), ajuda.
+
+---
+
+### 5. Tecnologias Sugeridas  
+- **Frontend**: React (create-react-app ou Next.js), Recharts ou Chart.js  
+- **Backend**: Node.js + Express ou Python (Django/Flask)  
+- **Banco de Dados**: PostgreSQL ou Firebase/Firestore  
+- **Autenticação**: JWT ou Firebase Auth  
+- **Deploy**: Vercel (frontend) + Heroku/AWS/GCP (backend)
+
+---
+
+### 6. APIs e Lógica  
+- **GET /api/testes?usuario_id=&filters…** → lista de testes com resultados agregados.  
+- **POST /api/testes** → cria teste + resultados por área + respostas.  
+- **GET /api/tri/questoes** → retorna todos os parâmetros TRI (b, a, c).  
+- **WebSocket ou polling** para atualizar dashboards em tempo real (opcional).
+
+---
+
+### 7. Integração TRI e Classificação  
+- No **backend**, ao salvar cada `Resposta`, buscar `Questao.parametro_b` e atribuir `dificuldade`.  
+- Agregar erros por dificuldade usando consultas SQL (GROUP BY) ou agregações em código.
+
+---
+
+### 8. Detalhes de UX e UI  
+- **Validação de Dados**: dropdowns, máscaras de data, limites numéricos.  
+- **Formatação Condicional**: cores suaves para desempenho (verde claro a vermelho).  
+- **Responsividade**: funcionar em desktop e mobile.  
+- **Acessibilidade**: alt text, contraste, navegação por teclado.
+
+---
+
+Com esse **prompt completo**, o time de desenvolvimento (ou uma IA de geração de código) terá todas as informações de **requisitos**, **modelo de dados**, **fluxos**, **visualizações** e **tecnologias** necessárias para entregar seu site de acompanhamento ENEM com análise TRI integrada.
